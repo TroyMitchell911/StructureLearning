@@ -19,6 +19,8 @@ struct list_node {
 struct list_node *list_insert(struct list_node *head, int data);
 int list_is_empty(struct list_node *head);
 void list_print(struct list_node* head);
+struct list_node* list_reverse_iteration(struct list_node *head);
+struct list_node* list_reverse_recursion(struct list_node *head, struct list_node *prev);
 
 
 
