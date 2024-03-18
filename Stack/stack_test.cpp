@@ -11,6 +11,7 @@
 #include <iostream>
 #include <stack>
 #include "stack_test.h"
+#include "stack_calculate.h"
 
 using namespace std;
 
@@ -77,9 +78,57 @@ static void _stack_reverse_list(void) {
     list_print(head);
 }
 
+static void _stack_check_bracket_balance(char* str) {
+    stack<char> s;
+    for(char *p = str; *p != '\0'; p++) {
+        if(*p == '(' || *p == '[' || *p == '{') {
+            s.push(*p);
+        } else {
+            switch(*p) {
+                case ')' :
+                    if(s.top() != '(') {
+                        cout << "À¨ºÅ²»Æ¥Åä" << endl;
+                        return;
+                    }
+                    s.pop();
+                    break;
+                case ']':
+                    if(s.top() != '[') {
+                        cout << "À¨ºÅ²»Æ¥Åä" << endl;
+                        return;
+                    }
+                    s.pop();
+                    break;
+                case '}':
+                    if(s.top() != '{') {
+                        cout << "À¨ºÅ²»Æ¥Åä" << endl;
+                        return;
+                    }
+                    s.pop();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    cout << "À¨ºÅÆ¥Åä" << endl;
+}
+
 void stack_test() {
     _stack_array_test();
     _stack_list_test();
     _stack_reverse_string();
     _stack_reverse_list();
+    _stack_check_bracket_balance("(){[]}");
+    _stack_check_bracket_balance("({)[]}");
+    /*
+     * 3*5-2*3+3
+     * (3,5*)-(2,3*)+3
+     * 3,5*2,3*-3+
+     * */
+    string test = stack_calculate_infix2postfix("3*5-2*3+3");
+    cout << test << endl;
+    char *formula = (char*)test.c_str();
+    stack_calculate(formula);
+
 }

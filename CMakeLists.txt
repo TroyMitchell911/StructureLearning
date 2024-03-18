@@ -14,4 +14,5 @@ add_executable(Structure main.cpp
         List/list.cpp
         Stack/stack_array.cpp
         Stack/stack_list.cpp
-        Stack/stack_test.cpp)
+        Stack/stack_test.cpp
+        Stack/stack_calculate.cpp)
