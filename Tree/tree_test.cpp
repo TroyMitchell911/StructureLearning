@@ -24,7 +24,9 @@ static void _bst_test(void) {
     if(bst_search(root, 10)) cout << "Found\n";
     else cout << "Not Found\n";
     cout << "Min:" << bst_min(root) << " Max:" << bst_max(root) << endl;
-    cout << "Height:" << bt_height(root);
+
+    cout << "Height:" << bt_height(root) << endl;
+    bt_level_order(root);
 }
 
 void tree_test(void) {

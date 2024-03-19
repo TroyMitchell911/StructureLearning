@@ -33,7 +33,7 @@ A repository for learning structure
 
 ## Mar 19,2024
 
-### 5:20am
+### 5:20pm
 
 - 完成二叉搜索树的插入
 - 完成二叉搜索树的搜索
@@ -41,6 +41,10 @@ A repository for learning structure
 - 完成求二叉树的高度
 - 增加树测试
 - 完善链表注释
+
+### 6:14pm
+
+- 完成二叉树层级遍历及广度优先遍历
 
 # TODO
 

@@ -20,5 +20,6 @@ struct binary_tree {
 typedef struct binary_tree binary_search_tree;
 
 int bt_height(binary_search_tree *root);
+void bt_level_order(binary_tree *root);
 
 #endif //STRUCTURE_BINARY_TREE_H
