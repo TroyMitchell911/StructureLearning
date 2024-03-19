@@ -24,6 +24,9 @@ static inline void list_test(void) {
     list_print(head);
     head = list_reverse_recursion(head, NULL);
     list_print(head);
+
+    for(;head != nullptr; head = head->next)
+        free(head);
 }
 
 #endif //STRUCTURE_LIST_TEST_H
