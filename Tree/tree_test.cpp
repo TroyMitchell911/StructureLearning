@@ -15,6 +15,11 @@ using namespace std;
 
 static void _bst_test(void) {
     binary_search_tree *root = nullptr;
+    /*
+     *              15
+     *          10      20
+     *        8    12       25
+     * */
     root = bst_insert(root, 15);
     root = bst_insert(root, 10);
     root = bst_insert(root, 20);
@@ -27,6 +32,12 @@ static void _bst_test(void) {
 
     cout << "Height:" << bt_height(root) << endl;
     bt_level_order(root);
+    bt_preorder(root);
+    cout  << endl;
+    bt_inorder(root);
+    cout << endl;
+    bt_postorder(root);
+    cout << endl;
 }
 
 void tree_test(void) {

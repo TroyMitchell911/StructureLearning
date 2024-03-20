@@ -46,6 +46,12 @@ A repository for learning structure
 
 - 完成二叉树层级遍历及广度优先遍历
 
+## Mar 20,2024
+
+### 2:33pm
+
+- 完成二叉树前序、中序、后序遍历
+
 # TODO
 
 - [ ] 完善队列注释

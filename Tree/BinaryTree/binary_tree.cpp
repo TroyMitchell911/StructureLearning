@@ -53,3 +53,31 @@ void bt_level_order(binary_tree *root) {
     }
     cout << endl;
 }
+
+void bt_preorder(binary_tree* root) {
+    if(root == nullptr) {
+        return;
+    }
+    cout << root->data << " ";
+    bt_preorder(root->left);
+    bt_preorder(root->right);
+}
+
+void bt_inorder(binary_tree* root) {
+    if(root == nullptr) {
+        return;
+    }
+    bt_inorder(root->left);
+    cout << root->data << " ";
+    bt_inorder(root->right);
+}
+
+void bt_postorder(binary_tree* root) {
+    if(root == nullptr) {
+        return;
+    }
+    bt_postorder(root->left);
+    bt_postorder(root->right);
+    cout << root->data << " ";
+}
+
