@@ -21,8 +21,10 @@ typedef struct binary_tree binary_search_tree;
 
 int bt_height(binary_search_tree *root);
 void bt_level_order(binary_tree *root);
-void bt_preorder(binary_tree* root);
-void bt_inorder(binary_tree* root);
-void bt_postorder(binary_tree* root);
+void bt_preorder(binary_tree *root);
+void bt_inorder(binary_tree *root);
+void bt_postorder(binary_tree *root);
+bool bt_is_bst(binary_tree* root);
+bool bt_is_bst_find_number(binary_tree* root);
 
 #endif //STRUCTURE_BINARY_TREE_H

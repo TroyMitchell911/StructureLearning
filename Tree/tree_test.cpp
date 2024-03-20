@@ -38,6 +38,12 @@ static void _bst_test(void) {
     cout << endl;
     bt_postorder(root);
     cout << endl;
+
+    cout << (bt_is_bst(root) ? "yes" : "no") << endl;
+    cout << (bt_is_bst_find_number(root) ? "yes" : "no") << endl;
+    root->data = 3;
+    cout << (bt_is_bst(root) ? "yes" : "no") << endl;
+    cout << (bt_is_bst_find_number(root) ? "yes" : "no") << endl;
 }
 
 void tree_test(void) {
