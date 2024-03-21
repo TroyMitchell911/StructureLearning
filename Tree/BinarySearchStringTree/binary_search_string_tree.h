@@ -18,8 +18,9 @@ struct bsst{
     struct bsst *right;
 };
 
-void bsst_insert(bsst **root, const char* str, void* user_data);
-void bsst_delete(bsst **root, const char* str);
-void bsst_inorder(bsst *root);
+void bsst_insert(struct bsst **root, const char* str, void* user_data);
+void bsst_delete(struct bsst **root, const char* str);
+void bsst_inorder(struct bsst *root);
+void* bsst_search(struct bsst *root, char* str);
 
 #endif //STRUCTURE_BINARY_SEARCH_STRING_TREE_H
