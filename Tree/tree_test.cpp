@@ -47,6 +47,20 @@ static void _bst_test(void) {
     cout << (bt_is_bst_find_number(root) ? "yes" : "no") << endl;
 }
 
+static void _bsst_test(void) {
+    int a = 1, b = 2, c = 3;
+    bsst *root = NULL;
+    bsst_insert(&root, "abb", &a);
+    bsst_insert(&root, "aac", &b);
+    bsst_insert(&root, "abc", &c);
+    bsst_insert(&root, "aad", &b);
+    bsst_insert(&root, "aab", &b);
+    bsst_delete(&root, "aac");
+    bsst_inorder(root);
+
+}
+
 void tree_test(void) {
     _bst_test();
+    _bsst_test();
 }

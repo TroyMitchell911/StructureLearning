@@ -11,7 +11,9 @@
 #ifndef STRUCTURE_TREE_TEST_H
 #define STRUCTURE_TREE_TEST_H
 
+#include "binary_tree.h"
 #include "binary_search_tree.h"
+#include "binary_search_string_tree.h"
 
 void tree_test(void);
 
