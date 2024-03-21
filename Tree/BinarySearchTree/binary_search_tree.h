@@ -18,6 +18,9 @@ bool bst_search(binary_search_tree *root, int data) ;
 binary_search_tree* bst_insert(binary_search_tree *root, int data);
 int bst_min(binary_search_tree *root);
 int bst_max(binary_search_tree *root);
+binary_search_tree* bst_min_node(binary_search_tree *root);
+binary_search_tree* bst_max_node(binary_search_tree *root);
+binary_search_tree* bst_delete(binary_search_tree *root, int data);
 
 
 

@@ -26,6 +26,7 @@ static void _bst_test(void) {
     root = bst_insert(root, 25);
     root = bst_insert(root, 8);
     root = bst_insert(root, 12);
+    root = bst_delete(root, 15);
     if(bst_search(root, 10)) cout << "Found\n";
     else cout << "Not Found\n";
     cout << "Min:" << bst_min(root) << " Max:" << bst_max(root) << endl;

@@ -83,7 +83,7 @@ int bst_min(binary_search_tree *root) {
 /**
  * @brief 在二叉搜索树中查找最大值
  * @param root 二叉搜索树根节点
- * @return 二叉搜索树种最大的值
+ * @return 二叉搜索树中最大的值
  */
 int bst_max(binary_search_tree *root) {
     if(root == nullptr) {
@@ -95,4 +95,75 @@ int bst_max(binary_search_tree *root) {
         /* 递归一直到右子树为叶子节点 */
         return bst_max(root->right);
     }
+}
+
+/**
+ * @brief 在二叉搜索树中查找拥有最小值的节点
+ * @param root 二叉搜索树根节点
+ * @return 二叉搜索树种最小的值的节点
+ */
+binary_search_tree* bst_min_node(binary_search_tree *root) {
+    if(root == nullptr) {
+        return 0;
+    } else if(root->left == nullptr) {
+        /* 如果该节点已经是叶子节点，则可以直接返回值 */
+        return root;
+    } else {
+        /* 递归一直到左子树为叶子节点 */
+        return bst_min_node(root->left);
+    }
+}
+
+/**
+ * @brief 在二叉搜索树中查找拥有最大值的节点
+ * @param root 二叉搜索树根节点
+ * @return 二叉搜索树种最大的值的节点
+ */
+binary_search_tree* bst_max_node(binary_search_tree *root) {
+    if(root == nullptr) {
+        return 0;
+    } else if(root->right == nullptr) {
+        /* 如果该节点已经是叶子节点，则可以直接返回值 */
+        return root;
+    } else {
+        /* 递归一直到右子树为叶子节点 */
+        return bst_max_node(root->right);
+    }
+}
+/**
+ * @brief 删除二叉搜索树中的某个树，使二叉搜索树继续保持特性
+ * @param root 二叉搜索树根节点
+ * @param data 欲删除的数据
+ * @return 返回修改后的节点指针
+ */
+binary_search_tree* bst_delete(binary_search_tree *root, int data) {
+    binary_search_tree *temp;
+    if(root == nullptr) {
+        return root;
+    }
+    if(root->data < data) {
+        root->right = bst_delete(root->right, data);
+    } else if(root->data > data) {
+        root->left = bst_delete(root->left, data);
+    } else if(root->left == nullptr && root->right == nullptr) {
+        /* 删除叶子节点 */
+        delete root;
+        root = nullptr;
+    } else if(root->left == nullptr) {
+        /* 删除只有一个子节点的节点 子节点是否成子树无需关心 */
+        temp = root->right;
+        delete root;
+        root = temp;
+    } else if(root->right == nullptr) {
+        /* 删除只有一个子节点的节点 子节点是否成子树无需关心 */
+        temp = root->left;
+        delete root;
+        root = temp;
+    } else {
+        /* 删除拥有两个子节点的节点 */
+        temp = bst_min_node(root->right);
+        root->data = temp->data;
+        root->right = bst_delete(root->right, root->data);
+    }
+    return root;
 }
