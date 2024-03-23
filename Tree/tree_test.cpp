@@ -40,6 +40,10 @@ static void _bst_test(void) {
     bt_postorder(root);
     cout << endl;
 
+    cout << "8 successors: " << bst_get_successors(root, 8) << endl;
+    cout << "12 successors: " << bst_get_successors(root, 12) << endl;
+    cout << "20 successors: " << bst_get_successors(root, 20) << endl;
+
     cout << (bt_is_bst(root) ? "yes" : "no") << endl;
     cout << (bt_is_bst_find_number(root) ? "yes" : "no") << endl;
     root->data = 3;

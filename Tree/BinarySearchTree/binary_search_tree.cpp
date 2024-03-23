@@ -9,6 +9,7 @@
   */
 
 #include <ntdef.h>
+#include <climits>
 #include "binary_search_tree.h"
 
 /**
@@ -29,6 +30,27 @@ bool bst_search(binary_search_tree *root, int data) {
         return bst_search(root->right, data);
     } else {
         return true;
+    }
+}
+
+/**
+ * @brief 搜索二叉搜索树中数据data的节点
+ * @param root 二叉搜索树根节点
+ * @param data 欲搜索的数据
+ * @return 该数据的节点
+ */
+binary_search_tree *bst_search_node(binary_search_tree *root, int data) {
+    if(root == nullptr) {
+        /* 如果节点为null说明该树为空或者通过递归已经触底，不管是那种情况data都不存在该树中 */
+        return nullptr;
+    } else if(root->data > data) {
+        /* 由于是二叉搜索树，所以如果当前数据大于要搜索的数据，就去左边搜索即可 */
+        return bst_search_node(root->left, data);
+    } else if(root->data < data) {
+        /* 原理同上 */
+        return bst_search_node(root->right, data);
+    } else {
+        return root;
     }
 }
 
@@ -167,3 +189,29 @@ binary_search_tree* bst_delete(binary_search_tree *root, int data) {
     }
     return root;
 }
+
+int bst_get_successors(binary_search_tree *root, int data) {
+    binary_search_tree *node = bst_search_node(root, data);
+    if(node != nullptr) {
+        if(node->right != nullptr) {
+            return bst_min(node->right);
+        } else {
+            binary_search_tree *temp = root;
+            binary_search_tree *ancestor = nullptr;
+            while(temp != nullptr) {
+                if(data < temp->data) {
+                    ancestor = temp;
+                    temp = temp->left;
+                } else if(data > temp->data) {
+                    temp = temp->right;
+                } else {
+                    return ancestor->data;
+                }
+            }
+            return INT_MIN;
+        }
+    } else {
+        return INT_MIN;
+    }
+}
+
